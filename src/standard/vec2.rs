@@ -22,7 +22,14 @@ impl<T: Default + Clone> Vec2<T> {
         if x < self.width && x >= 0 && y < self.height && y >= 0 {
             self.vec[x][y] = new_val;
             return Ok(());
+        } else {
+            Err(())
         }
-        Err(())
+    }
+    pub fn width(&self) -> usize {
+        self.width
+    }
+    pub fn height(&self) -> usize {
+        self.height
     }
 }
