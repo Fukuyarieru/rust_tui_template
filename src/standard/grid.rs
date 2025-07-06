@@ -1,9 +1,9 @@
-pub struct Vec2<T> {
+pub struct Grid<T> {
     vec: Vec<Vec<T>>,
     width: usize,
     height: usize,
 }
-impl<T: Default + Clone> Vec2<T> {
+impl<T: Default + Clone> Grid<T> {
     pub fn new(width: usize, height: usize) -> Self {
         Self {
             vec: vec![vec![T::default(); height]; width],
