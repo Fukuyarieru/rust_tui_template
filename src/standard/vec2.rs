@@ -3,20 +3,26 @@ pub struct Vec2<T> {
     width: usize,
     height: usize,
 }
-impl<T> Vec2<T> {
-    pub fn new(width: usize, height: usize) -> Self
-    where
-        T: Default + Copy,
-    {
+impl<T: Default + Clone> Vec2<T> {
+    pub fn new(width: usize, height: usize) -> Self {
         Self {
-            vec: {
-                // TODO
-                // let vec: Vec<Vec<T>> =
-                //     Vec::<Vec<T>>::with_capacity(width).fill(Vec::with_capacity(height));
-                Vec::new()
-            },
+            vec: vec![vec![T::default(); height]; width],
             width: width,
             height: height,
         }
+    }
+    pub fn get(&self, x: usize, y: usize) -> Option<T> {
+        if let Some(vec) = self.vec.get(x) {
+            vec.get(y).cloned()
+        } else {
+            None
+        }
+    }
+    pub fn set(&mut self, x: usize, y: usize, new_val: T) -> Result<(), ()> {
+        if x < self.width && x >= 0 && y < self.height && y >= 0 {
+            self.vec[x][y] = new_val;
+            return Ok(());
+        }
+        Err(())
     }
 }
