@@ -1,4 +1,4 @@
-mod selection_box;
+mod display_object;
 mod terminal;
 mod default_regions;
 mod display;
