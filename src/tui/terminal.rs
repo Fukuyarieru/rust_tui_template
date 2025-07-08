@@ -1,4 +1,4 @@
-use crate::tui::selection_box::SelectionBox;
+use crate::prelude::*;
 
 pub struct Terminal {
     // display: Display
