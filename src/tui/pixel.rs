@@ -1,3 +1,7 @@
+use crate::prelude::*;
+
+#[derive(Default)]
 pub struct Pixel {
-    char: char
+    char: char,
+    background_color: Color,
 }

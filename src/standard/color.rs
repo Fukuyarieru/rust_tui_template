@@ -1,5 +1,6 @@
+#[derive(Debug,Clone,Default)]
 pub struct Color {
-    r: u16,
-    g: u16,
-    b: u16,
+    r: u8,
+    g: u8,
+    b: u8,
 }
