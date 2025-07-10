@@ -27,9 +27,6 @@ pub trait DisplayObject : FromIterator<Arc<Pixel>> {
     fn get_data(&self)->impl Iterator;
 }
 
-
-
-
 pub trait SelectionBox : DisplayObject {
     fn get_data(&self) -> Grid<Arc<Pixel>>;
     fn center(&self) -> (usize,usize);

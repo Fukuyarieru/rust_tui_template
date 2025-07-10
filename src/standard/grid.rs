@@ -42,7 +42,7 @@ impl<T> IntoIterator for Grid<T> {
 
     type IntoIter = std::iter::Flatten<std::vec::IntoIter<Vec<T>>>;
     fn into_iter(self) -> Self::IntoIter {
-        self.vec.into_iter().flatten()
+        self.vec.into_iter().flatten().into_iter()
     }
 }
 impl<T: Default+Clone> From<Vec<Vec<T>>> for Grid<T> {
@@ -50,8 +50,6 @@ impl<T: Default+Clone> From<Vec<Vec<T>>> for Grid<T> {
         Grid::from(value)
     }
 }
-// impl<T> Into<Grid<T>> for Iter<'_,Iter<'_,T>> {
-//     fn into(self) -> Grid<T> {
-//         self.map(|iter: &Iter<'_, T>|iter.)
-//     }
-// }
+pub trait IntoGrid<T> {
+    fn into_grid(self) -> Grid<T>;
+}
